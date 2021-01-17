@@ -39,18 +39,20 @@ const Card = (props)=>{
                     .image{
                         padding: 0px 20px;
                     }
-                    .body{
-                        
+                    .rating{
+                        font-size:15pt;
                     }
                     a{
-                        font-size:20pt;
+                        font-size:30pt;
                         font-family:Nunito;
                         color: black;
                     }
                     .meta{
                         position:absolute;
                         bottom:50px;
+                        font-size:20pt;
                         display:inline;
+                        justify-content: space-around;
                     }
                 `}
             </style>

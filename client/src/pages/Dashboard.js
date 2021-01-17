@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import Card from '../component/Home/Card'
+import loading from '../static/loading.svg'
 
 const Dashboard = (props)=>{
     const [movies, setMovies] = useState([]);
@@ -20,12 +21,12 @@ const Dashboard = (props)=>{
                 TOP 10 BLOCKBUSTER MOVIE 2019
             </div>
             <div className="content">
-                {movies ? movies.map(movie=>{
+                {movies.length!==0 ? movies.map(movie=>{
                     return(
                         <Card data={movie}/>
                     )
                     
-                }) : <div>Loading</div>
+                }) : <img src={loading} className="loading"/>
                 }
             </div>
             <style jsx>
@@ -35,6 +36,11 @@ const Dashboard = (props)=>{
                         padding:30px;
                         font-family: Lato;
                         font-size: 30pt;
+                    }
+                    .loading{
+                        display: block;
+                        margin: 100px auto;
+                        width: 150px;
                     }
                 `}
             </style>

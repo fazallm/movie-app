@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import Layout from '../component/Layout'
 import axios from 'axios'
 import star from '../static/star.png'
 import {useParams} from 'react-router-dom'
+import loading from '../static/loading.svg'
+import _ from 'lodash'
 
 const Movie = (props)=>{
     const param = useParams()
@@ -17,7 +18,7 @@ const Movie = (props)=>{
 
     return(
         <div>
-            {data?
+            {!_.isEmpty(data)?
             <div className="container">
                 <div className="image-container">
                     <img src={data.imageURL} className="image"></img>
@@ -102,7 +103,7 @@ const Movie = (props)=>{
                         </div>
                     </div>
                 </div>
-            </div> : <div>Loading</div>}
+            </div> : <img src={loading} className="loading"/>}
             <style jsx>
                 {`
                     .container{
@@ -160,6 +161,11 @@ const Movie = (props)=>{
                         font-family: Nunito;
                         boder: 2px solid black;
                         cursor:pointer;
+                    }
+                    .loading{
+                        display: block;
+                        margin: 100px auto;
+                        width: 150px;
                     }
                 `}
             </style>
